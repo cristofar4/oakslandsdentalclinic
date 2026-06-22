@@ -1,21 +1,24 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SmartImage } from "@/components/shared/smart-image";
 
 type BeforeAfterSliderProps = {
-  before: string;
-  after: string;
+  image: string;
   beforeLabel?: string;
   afterLabel?: string;
   className?: string;
 };
 
+/**
+ * Interactive before/after comparison. Uses one source image for both sides
+ * and simulates the "before" state with a CSS filter (duller, warmer, dimmer),
+ * so the comparison always renders even when only a single photo is available.
+ */
 export function BeforeAfterSlider({
-  before,
-  after,
+  image,
   beforeLabel = "Before",
   afterLabel = "After",
   className,
@@ -50,7 +53,7 @@ export function BeforeAfterSlider({
       ref={containerRef}
       className={cn(
         "group relative aspect-[4/3] w-full select-none overflow-hidden rounded-2xl border border-border/70 shadow-soft",
-        className
+        className,
       )}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -67,29 +70,29 @@ export function BeforeAfterSlider({
         if (e.key === "ArrowRight") setPosition((p) => Math.min(100, p + 4));
       }}
     >
-      {/* After (base) */}
-      <Image
-        src={after}
+      {/* After (base, bright and vivid) */}
+      <SmartImage
+        src={image}
         alt={afterLabel}
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover"
+        className="object-cover [filter:saturate(1.08)_contrast(1.04)_brightness(1.03)]"
       />
-      <span className="absolute right-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+      <span className="absolute right-4 top-4 z-10 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
         {afterLabel}
       </span>
 
-      {/* Before (clipped via clip-path so the image never distorts) */}
+      {/* Before (clipped, dulled with a CSS filter) */}
       <div
         className="absolute inset-0"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <Image
-          src={before}
+        <SmartImage
+          src={image}
           alt={beforeLabel}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
+          className="object-cover [filter:sepia(0.45)_saturate(0.75)_brightness(0.82)_contrast(0.95)]"
         />
         <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-navy backdrop-blur">
           {beforeLabel}
@@ -98,7 +101,7 @@ export function BeforeAfterSlider({
 
       {/* Handle */}
       <div
-        className="absolute inset-y-0 z-10 flex items-center"
+        className="absolute inset-y-0 z-20 flex items-center"
         style={{ left: `${position}%`, transform: "translateX(-50%)" }}
       >
         <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white shadow-[0_0_0_1px_rgba(11,36,71,0.15)]" />

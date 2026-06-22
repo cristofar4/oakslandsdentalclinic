@@ -27,8 +27,10 @@ export function SectionHeading({
     <div
       className={cn(
         "flex flex-col gap-4",
-        align === "center" ? "items-center text-center mx-auto max-w-2xl" : "items-start text-left max-w-xl",
-        className
+        align === "center"
+          ? "items-center text-center mx-auto max-w-2xl"
+          : "items-start text-left max-w-xl",
+        className,
       )}
     >
       {eyebrow && (
@@ -45,7 +47,7 @@ export function SectionHeading({
         highlight={highlight}
         className={cn(
           "text-fluid-h2 font-semibold leading-[1.05]",
-          light && "text-white"
+          light && "text-white",
         )}
       />
       {description && (
@@ -53,7 +55,7 @@ export function SectionHeading({
           <p
             className={cn(
               "text-base md:text-lg leading-relaxed",
-              light ? "text-white/70" : "text-muted-foreground"
+              light ? "text-white/70" : "text-muted-foreground",
             )}
           >
             {description}

@@ -11,7 +11,7 @@ import { CtaBand } from "@/components/shared/cta-band";
 export const metadata: Metadata = {
   title: "Patient Stories",
   description:
-    "Read real reviews and testimonials from Oaklands Dental Clinic patients across Owerri and Imo State — rated 4.9 from over 320 reviews.",
+    "Read real reviews and testimonials from Oaklands Dental Clinic patients across Owerri and Imo State, rated 4.9 from over 320 reviews.",
 };
 
 export default function TestimonialsPage() {

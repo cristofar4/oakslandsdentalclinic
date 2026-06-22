@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Premium Dentistry in Owerri, Imo State`,
+    default: `${site.name}, Premium Dentistry in Owerri, Imo State`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -52,12 +52,12 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Premium Dentistry in Owerri`,
+    title: `${site.name}, Premium Dentistry in Owerri`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Premium Dentistry in Owerri`,
+    title: `${site.name}, Premium Dentistry in Owerri`,
     description: site.description,
   },
   robots: {
@@ -65,9 +65,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
 };
 

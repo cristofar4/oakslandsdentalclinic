@@ -17,7 +17,7 @@ export function SmileShowcase() {
       <div className="container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="order-2 lg:order-1">
           <Reveal>
-            <BeforeAfterSlider before={featured.before} after={featured.after} />
+            <BeforeAfterSlider image={featured.image} />
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-center text-sm text-muted-foreground">
@@ -40,7 +40,7 @@ export function SmileShowcase() {
           <Reveal delay={0.1}>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               Every smile tells a story. Explore real before-and-after results
-              from our cosmetic, restorative and orthodontic patients — and
+              from our cosmetic, restorative and orthodontic patients, and
               imagine what we could do for yours.
             </p>
           </Reveal>
@@ -51,7 +51,7 @@ export function SmileShowcase() {
                 <Badge key={tag} variant="muted" className="px-4 py-1.5">
                   {tag}
                 </Badge>
-              )
+              ),
             )}
           </div>
 

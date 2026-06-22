@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import { motion } from "framer-motion";
 import { Linkedin, ArrowUpRight } from "lucide-react";
 
@@ -19,7 +19,11 @@ export function TeamCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: (index % 4) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.6,
+        delay: (index % 4) * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className="group relative overflow-hidden rounded-2xl border border-border/70 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-glow"
     >
       <div className="relative aspect-[4/5] overflow-hidden">

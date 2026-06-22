@@ -24,21 +24,24 @@ export function TextReveal({
   delay = 0,
   highlight,
 }: TextRevealProps) {
-  const ref = useGsapContext((ctx) => {
-    const words = ctx.self.querySelectorAll(".tr-word > span");
-    gsap.set(words, { yPercent: 120 });
-    gsap.to(words, {
-      yPercent: 0,
-      duration: 0.9,
-      delay,
-      ease: "power4.out",
-      stagger: 0.045,
-      scrollTrigger: {
-        trigger: ctx.self,
-        start: "top 85%",
-      },
-    });
-  }, [text]);
+  const ref = useGsapContext(
+    (ctx) => {
+      const words = ctx.self.querySelectorAll(".tr-word > span");
+      gsap.set(words, { yPercent: 120 });
+      gsap.to(words, {
+        yPercent: 0,
+        duration: 0.9,
+        delay,
+        ease: "power4.out",
+        stagger: 0.045,
+        scrollTrigger: {
+          trigger: ctx.self,
+          start: "top 85%",
+        },
+      });
+    },
+    [text],
+  );
 
   const words = text.split(" ");
 
@@ -46,7 +49,9 @@ export function TextReveal({
     <Tag ref={ref as never} className={cn("text-balance", className)}>
       {words.map((word, i) => {
         const isHighlight = highlight
-          ? highlight.toLowerCase().includes(word.toLowerCase().replace(/[.,]/g, ""))
+          ? highlight
+              .toLowerCase()
+              .includes(word.toLowerCase().replace(/[.,]/g, ""))
           : false;
         return (
           <span
@@ -57,7 +62,7 @@ export function TextReveal({
             <span
               className={cn(
                 "inline-block will-change-transform",
-                isHighlight && "text-gradient-gold"
+                isHighlight && "text-gradient-gold",
               )}
             >
               {word}

@@ -19,7 +19,7 @@ import { Reveal } from "@/components/shared/reveal";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Oaklands Dental Clinic in Owerri, Imo State. Call, email or visit us — plus emergency dental contact and opening hours.",
+    "Get in touch with Oaklands Dental Clinic in Owerri, Imo State. Call, email or visit us, plus emergency dental contact and opening hours.",
 };
 
 const contactCards = [
@@ -50,7 +50,7 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title="We're here to help you smile"
         highlight="smile"
-        description="Questions, bookings or emergencies — reach out however suits you best. Our friendly team responds quickly."
+        description="Questions, bookings or emergencies, reach out however suits you best. Our friendly team responds quickly."
         crumbs={[{ label: "Contact" }]}
       />
 
@@ -131,9 +131,9 @@ export default function ContactPage() {
                   </h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-navy/70">
-                  Severe pain, swelling or a knocked-out tooth? Don&apos;t wait —
-                  call us immediately and we&apos;ll prioritise your care, even on
-                  Sundays.
+                  Severe pain, swelling or a knocked-out tooth? Don&apos;t wait,
+                  call us immediately and we&apos;ll prioritise your care, even
+                  on Sundays.
                 </p>
                 <a
                   href={`tel:${formatPhoneHref(site.phoneHref)}`}
@@ -152,9 +152,21 @@ export default function ContactPage() {
                 </h3>
                 <div className="mt-4 flex gap-3">
                   {[
-                    { icon: Facebook, href: site.socials.facebook, label: "Facebook" },
-                    { icon: Instagram, href: site.socials.instagram, label: "Instagram" },
-                    { icon: Linkedin, href: site.socials.linkedin, label: "LinkedIn" },
+                    {
+                      icon: Facebook,
+                      href: site.socials.facebook,
+                      label: "Facebook",
+                    },
+                    {
+                      icon: Instagram,
+                      href: site.socials.instagram,
+                      label: "Instagram",
+                    },
+                    {
+                      icon: Linkedin,
+                      href: site.socials.linkedin,
+                      label: "LinkedIn",
+                    },
                   ].map(({ icon: Icon, href, label }) => (
                     <a
                       key={label}

@@ -41,7 +41,7 @@ export function Navbar() {
       <div
         className={cn(
           "hidden border-b border-white/10 bg-navy-950 text-white/80 transition-all duration-500 lg:block",
-          scrolled ? "h-0 overflow-hidden opacity-0" : "h-10 opacity-100"
+          scrolled ? "h-0 overflow-hidden opacity-0" : "h-10 opacity-100",
         )}
       >
         <div className="container flex h-10 items-center justify-between text-xs">
@@ -53,11 +53,13 @@ export function Navbar() {
               <Phone className="h-3.5 w-3.5" /> {site.phone}
             </a>
             <span className="flex items-center gap-2">
-              <Clock className="h-3.5 w-3.5" /> Mon–Fri 8AM–8PM · Sat 9AM–7PM
+              <Clock className="h-3.5 w-3.5" /> Mon to Fri 8AM to 8PM · Sat 9AM
+              to 7PM
             </span>
           </div>
           <span className="text-gold-300/90">
-            {site.address.city}, {site.address.state} — Nigeria&apos;s premier dental care
+            {site.address.city}, {site.address.state}, Nigeria&apos;s premier
+            dental care
           </span>
         </div>
       </div>
@@ -68,12 +70,12 @@ export function Navbar() {
           "transition-all duration-500",
           scrolled
             ? "glass border-b border-white/40 shadow-soft"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <nav className="container flex h-[72px] items-center justify-between">
           <Link href="/" aria-label="Oaklands Dental Clinic home">
-            <Logo variant={scrolled ? "dark" : "dark"} />
+            <Logo variant={scrolled ? "dark" : "light"} />
           </Link>
 
           <div className="hidden items-center gap-1 xl:flex">
@@ -88,9 +90,13 @@ export function Navbar() {
                   href={item.href}
                   className={cn(
                     "link-underline rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    active
-                      ? "text-navy"
-                      : "text-navy/60 hover:text-navy"
+                    scrolled
+                      ? active
+                        ? "text-navy"
+                        : "text-navy/60 hover:text-navy"
+                      : active
+                        ? "text-white"
+                        : "text-white/70 hover:text-white",
                   )}
                 >
                   {item.label}
@@ -113,7 +119,12 @@ export function Navbar() {
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:bg-navy hover:text-white xl:hidden"
+              className={cn(
+                "flex h-11 w-11 items-center justify-center rounded-full border transition-colors xl:hidden",
+                scrolled
+                  ? "border-navy/15 text-navy hover:bg-navy hover:text-white"
+                  : "border-white/30 text-white hover:bg-white hover:text-navy",
+              )}
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -136,7 +147,11 @@ export function Navbar() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
+              transition={{
+                type: "tween",
+                ease: [0.22, 1, 0.36, 1],
+                duration: 0.5,
+              }}
               className="fixed inset-y-0 right-0 z-50 flex w-[88%] max-w-sm flex-col bg-white p-6 shadow-glow xl:hidden"
             >
               <div className="flex items-center justify-between">
@@ -168,7 +183,9 @@ export function Navbar() {
                         href={item.href}
                         className={cn(
                           "flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl transition-colors",
-                          active ? "text-gold-600" : "text-navy hover:text-gold-600"
+                          active
+                            ? "text-gold-600"
+                            : "text-navy hover:text-gold-600",
                         )}
                       >
                         {item.label}

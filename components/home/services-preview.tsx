@@ -17,7 +17,7 @@ export function ServicesPreview() {
             eyebrow="What we do"
             title="A full spectrum of premium dental care"
             highlight="premium"
-            description="From everyday prevention to transformative cosmetic dentistry — every treatment is delivered with precision, artistry and genuine warmth."
+            description="From everyday prevention to transformative cosmetic dentistry, every treatment is delivered with precision, artistry and genuine warmth."
           />
           <Reveal>
             <Button asChild variant="outline" className="shrink-0">

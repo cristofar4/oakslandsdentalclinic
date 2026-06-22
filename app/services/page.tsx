@@ -9,7 +9,7 @@ import { CtaBand } from "@/components/shared/cta-band";
 export const metadata: Metadata = {
   title: "Dental Services",
   description:
-    "Explore Oaklands' full range of premium dental services — teeth whitening, braces, veneers, root canals, crowns, smile makeovers and preventive care in Owerri.",
+    "Explore Oaklands' full range of premium dental services, teeth whitening, braces, veneers, root canals, crowns, smile makeovers and preventive care in Owerri.",
 };
 
 export default function ServicesPage() {

@@ -26,7 +26,7 @@ export function Parallax({
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? [0, 0] : [offset, -offset]
+    reduce ? [0, 0] : [offset, -offset],
   );
 
   return (

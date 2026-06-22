@@ -20,7 +20,7 @@ export function StoryTimeline() {
           end: "bottom 80%",
           scrub: 0.5,
         },
-      }
+      },
     );
     gsap.utils.toArray<HTMLElement>(".timeline-node").forEach((node) => {
       gsap.from(node, {
@@ -40,7 +40,7 @@ export function StoryTimeline() {
           eyebrow="Our journey"
           title="A decade of growing smiles"
           highlight="smiles"
-          description="From a team of three to Imo State's leading multispecialty clinic — here's how Oaklands took root and flourished."
+          description="From a team of three to Imo State's leading multispecialty clinic, here's how Oaklands took root and flourished."
         />
 
         {/* Desktop horizontal timeline */}

@@ -27,7 +27,7 @@ export function TestimonialsPreview() {
             eyebrow="Patient stories"
             title="Smiles worth talking about"
             highlight="Smiles"
-            description="Real words from the people who matter most — our patients across Owerri and beyond."
+            description="Real words from the people who matter most, our patients across Owerri and beyond."
           />
         </div>
 

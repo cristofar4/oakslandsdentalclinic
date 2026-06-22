@@ -1,5 +1,5 @@
 /**
- * Oaklands Multispecialty Dental Care Clinic — central content source.
+ * Oaklands Multispecialty Dental Care Clinic, central content source.
  * All real business facts (name, address, hours, services) are retained from
  * the existing brand; copy has been elevated for the premium redesign.
  */
@@ -10,7 +10,7 @@ export const site = {
   shortName: "Oaklands",
   tagline: "Precision dentistry. Effortless confidence.",
   description:
-    "Oaklands Multispecialty Dental Care Clinic is Imo State's premier destination for advanced, patient-centred dentistry — from smile makeovers and orthodontics to restorative and preventive care in Owerri, Nigeria.",
+    "Oaklands Multispecialty Dental Care Clinic is Imo State's premier destination for advanced, patient-centred dentistry, from smile makeovers and orthodontics to restorative and preventive care in Owerri, Nigeria.",
   founded: 2015,
   url: "https://www.oaklandsdentalclinic.com",
   email: "info@oaklandsdentalclinic.com",
@@ -31,14 +31,44 @@ export const site = {
     lng: 7.0264,
   },
   hours: [
-    { day: "Monday – Friday", time: "8:00 AM – 8:00 PM", open: true },
-    { day: "Saturday", time: "9:00 AM – 7:00 PM", open: true },
+    { day: "Monday to Friday", time: "8:00 AM to 8:00 PM", open: true },
+    { day: "Saturday", time: "9:00 AM to 7:00 PM", open: true },
     { day: "Sunday", time: "Emergencies only", open: false },
   ],
   socials: {
     facebook: "https://www.facebook.com/OaklandsDentals/",
     instagram: "https://www.instagram.com/imo_dentist_owerri/",
     linkedin: "https://ng.linkedin.com/company/oaklands-dental-clinic",
+  },
+} as const;
+
+/**
+ * Hero media. `video` URLs are looping background clips (replace with the
+ * clinic's own footage anytime); `poster` is always shown first and remains as
+ * a graceful fallback if a video can't load. Posters reuse on-brand imagery.
+ */
+export const media = {
+  heroVideos: [
+    "https://cdn.coverr.co/videos/coverr-a-dentist-at-work-2633/1080p.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-dentist-checking-a-patient-9469-large.mp4",
+  ],
+  heroPoster:
+    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80",
+  pagePosters: {
+    about:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80",
+    services:
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1600&q=80",
+    gallery:
+      "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1600&q=80",
+    team: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1600&q=80",
+    testimonials:
+      "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=1600&q=80",
+    blog: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1600&q=80",
+    appointments:
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1600&q=80",
+    contact:
+      "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1600&q=80",
   },
 } as const;
 
@@ -56,10 +86,30 @@ export const mainNav: NavItem[] = [
 ];
 
 export const stats = [
-  { value: 20000, suffix: "+", label: "Smiles transformed", hint: "Patients served since 2015" },
-  { value: 16, suffix: "+", label: "Specialists & clinicians", hint: "A multidisciplinary team" },
-  { value: 10, suffix: " yrs", label: "Of trusted care", hint: "Founded in 2015" },
-  { value: 98, suffix: "%", label: "Would recommend us", hint: "Based on patient feedback" },
+  {
+    value: 20000,
+    suffix: "+",
+    label: "Smiles transformed",
+    hint: "Patients served since 2015",
+  },
+  {
+    value: 16,
+    suffix: "+",
+    label: "Specialists & clinicians",
+    hint: "A multidisciplinary team",
+  },
+  {
+    value: 10,
+    suffix: " yrs",
+    label: "Of trusted care",
+    hint: "Founded in 2015",
+  },
+  {
+    value: 98,
+    suffix: "%",
+    label: "Would recommend us",
+    hint: "Based on patient feedback",
+  },
 ];
 
 export type Service = {
@@ -72,7 +122,12 @@ export type Service = {
   image: string;
   duration: string;
   highlights: string[];
-  category: "Cosmetic" | "Orthodontics" | "Restorative" | "Preventive" | "Surgical";
+  category:
+    | "Cosmetic"
+    | "Orthodontics"
+    | "Restorative"
+    | "Preventive"
+    | "Surgical";
 };
 
 export const services: Service[] = [
@@ -81,14 +136,19 @@ export const services: Service[] = [
     title: "Teeth Whitening",
     short: "Professional, enamel-safe brightening for a radiant smile.",
     description:
-      "Advanced in-clinic and laser whitening that lifts years of staining in a single visit — calibrated to your enamel for a brilliant, natural result.",
+      "Advanced in-clinic and laser whitening that lifts years of staining in a single visit, calibrated to your enamel for a brilliant, natural result.",
     longDescription:
-      "Our professional whitening protocol uses medical-grade gels and laser activation to safely lift coffee, tea, wine and tobacco stains. Every treatment begins with a shade assessment and enamel check, so your brighter smile looks luminous — never artificial. Take-home maintenance trays keep results lasting.",
+      "Our professional whitening protocol uses medical-grade gels and laser activation to safely lift coffee, tea, wine and tobacco stains. Every treatment begins with a shade assessment and enamel check, so your brighter smile looks luminous, never artificial. Take-home maintenance trays keep results lasting.",
     icon: "Sparkles",
     image:
       "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
-    duration: "45–60 mins",
-    highlights: ["Up to 8 shades brighter", "Enamel-safe laser system", "Same-day results", "Take-home maintenance kit"],
+    duration: "45 to 60 mins",
+    highlights: [
+      "Up to 8 shades brighter",
+      "Enamel-safe laser system",
+      "Same-day results",
+      "Take-home maintenance kit",
+    ],
     category: "Cosmetic",
   },
   {
@@ -98,12 +158,17 @@ export const services: Service[] = [
     description:
       "From discreet clear aligners to precision fixed braces, we straighten teeth and correct bites with digitally planned, comfort-first orthodontics.",
     longDescription:
-      "Whether you choose near-invisible aligners or modern fixed braces, treatment is mapped with digital imaging so you can preview your final smile before you begin. Our orthodontic team manages crowding, spacing and bite issues for children, teens and adults — improving both aesthetics and long-term oral health.",
+      "Whether you choose near-invisible aligners or modern fixed braces, treatment is mapped with digital imaging so you can preview your final smile before you begin. Our orthodontic team manages crowding, spacing and bite issues for children, teens and adults, improving both aesthetics and long-term oral health.",
     icon: "AlignHorizontalDistributeCenter",
     image:
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80",
-    duration: "6–24 months",
-    highlights: ["Clear aligner options", "Digital smile preview", "Child & adult orthodontics", "Bite & alignment correction"],
+    duration: "6 to 24 months",
+    highlights: [
+      "Clear aligner options",
+      "Digital smile preview",
+      "Child & adult orthodontics",
+      "Bite & alignment correction",
+    ],
     category: "Orthodontics",
   },
   {
@@ -113,12 +178,17 @@ export const services: Service[] = [
     description:
       "A fully tailored cosmetic plan combining whitening, veneers, alignment and restorations to craft the smile you've always wanted.",
     longDescription:
-      "A smile makeover is a curated combination of treatments designed around your facial features, lips and personality. We begin with a digital smile design consultation, then sequence whitening, veneers, contouring and restorations into one harmonious plan — so every detail, from tooth shape to shade, feels unmistakably you.",
+      "A smile makeover is a curated combination of treatments designed around your facial features, lips and personality. We begin with a digital smile design consultation, then sequence whitening, veneers, contouring and restorations into one harmonious plan, so every detail, from tooth shape to shade, feels unmistakably you.",
     icon: "Smile",
     image:
       "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
     duration: "Tailored plan",
-    highlights: ["Digital smile design", "Face-led aesthetics", "Combined treatment plan", "Natural, lasting results"],
+    highlights: [
+      "Digital smile design",
+      "Face-led aesthetics",
+      "Combined treatment plan",
+      "Natural, lasting results",
+    ],
     category: "Cosmetic",
   },
   {
@@ -126,29 +196,39 @@ export const services: Service[] = [
     title: "Root Canal Treatment",
     short: "Gentle, pain-relieving therapy that saves natural teeth.",
     description:
-      "Precise endodontic care that removes infection, ends pain and preserves your natural tooth — finished with a durable, lifelike crown.",
+      "Precise endodontic care that removes infection, ends pain and preserves your natural tooth, finished with a durable, lifelike crown.",
     longDescription:
-      "Modern root canal therapy is comfortable and highly effective. Using magnification and gentle techniques, we remove infected tissue, disinfect the canal and seal the tooth — relieving pain while keeping your natural tooth in place. We finish most cases with a precision Zirconia crown for strength and beauty.",
+      "Modern root canal therapy is comfortable and highly effective. Using magnification and gentle techniques, we remove infected tissue, disinfect the canal and seal the tooth, relieving pain while keeping your natural tooth in place. We finish most cases with a precision Zirconia crown for strength and beauty.",
     icon: "ShieldPlus",
     image:
       "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80",
-    duration: "1–2 visits",
-    highlights: ["Virtually painless", "Saves the natural tooth", "Magnified precision", "Finished with a crown"],
+    duration: "1 to 2 visits",
+    highlights: [
+      "Virtually painless",
+      "Saves the natural tooth",
+      "Magnified precision",
+      "Finished with a crown",
+    ],
     category: "Restorative",
   },
   {
     slug: "tooth-extraction",
     title: "Tooth Extraction",
-    short: "Safe, calm removals — including complex surgical cases.",
+    short: "Safe, calm removals, including complex surgical cases.",
     description:
       "When a tooth can't be saved, our surgical team performs gentle, sterile extractions with clear aftercare and seamless replacement options.",
     longDescription:
-      "From simple removals to impacted wisdom teeth, our surgical clinicians prioritise comfort, safety and rapid healing. We explain every step, use effective anaesthesia, and guide you through aftercare. Where a tooth is lost, we plan replacement options — implants, bridges or dentures — to protect your bite and smile.",
+      "From simple removals to impacted wisdom teeth, our surgical clinicians prioritise comfort, safety and rapid healing. We explain every step, use effective anaesthesia, and guide you through aftercare. Where a tooth is lost, we plan replacement options, implants, bridges or dentures, to protect your bite and smile.",
     icon: "Stethoscope",
     image:
       "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80",
-    duration: "30–60 mins",
-    highlights: ["Simple & surgical cases", "Wisdom tooth removal", "Sterile, safe protocol", "Replacement planning"],
+    duration: "30 to 60 mins",
+    highlights: [
+      "Simple & surgical cases",
+      "Wisdom tooth removal",
+      "Sterile, safe protocol",
+      "Replacement planning",
+    ],
     category: "Surgical",
   },
   {
@@ -156,14 +236,19 @@ export const services: Service[] = [
     title: "Dental Veneers",
     short: "Ultra-thin porcelain artistry for a flawless front line.",
     description:
-      "Hand-finished porcelain veneers that correct shape, shade and spacing — sculpting a bright, even and natural-looking smile.",
+      "Hand-finished porcelain veneers that correct shape, shade and spacing, sculpting a bright, even and natural-looking smile.",
     longDescription:
-      "Veneers are wafer-thin porcelain shells bonded to the front of your teeth to transform colour, shape, length and symmetry. Crafted by skilled ceramists and placed with meticulous precision, they're ideal for chips, gaps and discolouration — delivering a red-carpet smile that still looks completely natural.",
+      "Veneers are wafer-thin porcelain shells bonded to the front of your teeth to transform colour, shape, length and symmetry. Crafted by skilled ceramists and placed with meticulous precision, they're ideal for chips, gaps and discolouration, delivering a red-carpet smile that still looks completely natural.",
     icon: "Gem",
     image:
       "https://images.unsplash.com/photo-1581585095857-50a5b14f3c5b?auto=format&fit=crop&w=1200&q=80",
-    duration: "2–3 visits",
-    highlights: ["Hand-crafted porcelain", "Corrects shape & shade", "Stain resistant", "Natural translucency"],
+    duration: "2 to 3 visits",
+    highlights: [
+      "Hand-crafted porcelain",
+      "Corrects shape & shade",
+      "Stain resistant",
+      "Natural translucency",
+    ],
     category: "Cosmetic",
   },
   {
@@ -173,12 +258,17 @@ export const services: Service[] = [
     description:
       "Custom crowns, bridges and tooth-coloured restorations that rebuild damaged teeth with strength, function and seamless aesthetics.",
     longDescription:
-      "When teeth are cracked, worn or heavily filled, our restorations rebuild them to full strength and beauty. We use premium Zirconia and ceramic crowns, bridges and fillings — colour-matched and contoured to blend invisibly with your natural teeth, restoring confident chewing and a complete smile.",
+      "When teeth are cracked, worn or heavily filled, our restorations rebuild them to full strength and beauty. We use premium Zirconia and ceramic crowns, bridges and fillings, colour-matched and contoured to blend invisibly with your natural teeth, restoring confident chewing and a complete smile.",
     icon: "Crown",
     image:
       "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80",
-    duration: "1–2 visits",
-    highlights: ["Premium Zirconia crowns", "Bridges & inlays", "Colour-matched", "Long-lasting strength"],
+    duration: "1 to 2 visits",
+    highlights: [
+      "Premium Zirconia crowns",
+      "Bridges & inlays",
+      "Colour-matched",
+      "Long-lasting strength",
+    ],
     category: "Restorative",
   },
   {
@@ -188,12 +278,17 @@ export const services: Service[] = [
     description:
       "Routine examinations, professional scaling and polishing, and tailored hygiene plans that stop problems before they start.",
     longDescription:
-      "Prevention is the foundation of lasting oral health. Our hygiene team provides thorough scaling and polishing, gum-health assessments, and personalised home-care guidance. Regular checkups with digital diagnostics catch issues early — protecting your teeth, your comfort and your budget over a lifetime.",
+      "Prevention is the foundation of lasting oral health. Our hygiene team provides thorough scaling and polishing, gum-health assessments, and personalised home-care guidance. Regular checkups with digital diagnostics catch issues early, protecting your teeth, your comfort and your budget over a lifetime.",
     icon: "HeartPulse",
     image:
       "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=1200&q=80",
-    duration: "30–45 mins",
-    highlights: ["Scaling & polishing", "Gum-health checks", "Digital diagnostics", "Personalised hygiene plan"],
+    duration: "30 to 45 mins",
+    highlights: [
+      "Scaling & polishing",
+      "Gum-health checks",
+      "Digital diagnostics",
+      "Personalised hygiene plan",
+    ],
     category: "Preventive",
   },
 ];
@@ -239,7 +334,7 @@ export const team: TeamMember[] = [
     name: "Nurse Blessing Eze",
     role: "Lead Dental Hygienist",
     specialty: "Preventive & Hygiene Care",
-    bio: "Blessing leads our preventive programme, turning routine cleanings into a calm, thorough ritual of care. Her warmth puts even the most anxious patients at ease — and her hygiene coaching keeps smiles healthy long after they leave the chair.",
+    bio: "Blessing leads our preventive programme, turning routine cleanings into a calm, thorough ritual of care. Her warmth puts even the most anxious patients at ease, and her hygiene coaching keeps smiles healthy long after they leave the chair.",
     image:
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80",
     credentials: ["RDH", "Periodontal Care", "Patient Coaching"],
@@ -309,8 +404,7 @@ export type SmileCase = {
   title: string;
   treatment: string;
   description: string;
-  before: string;
-  after: string;
+  image: string;
 };
 
 export const smileCases: SmileCase[] = [
@@ -319,40 +413,32 @@ export const smileCases: SmileCase[] = [
     treatment: "Porcelain Veneers",
     description:
       "A full upper veneer set closed spacing and brightened shade for a balanced, confident smile line.",
-    before:
-      "https://images.unsplash.com/photo-1601001435957-74f0958a93c9?auto=format&fit=crop&w=1000&q=80",
-    after:
-      "https://images.unsplash.com/photo-1612968055231-a3a99c4ed4f6?auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1100&q=80",
   },
   {
     title: "Brighter in one visit",
     treatment: "Laser Whitening",
     description:
       "Years of coffee and tea staining lifted in a single in-clinic whitening session.",
-    before:
-      "https://images.unsplash.com/photo-1620916297612-4f3f4f5b2c0c?auto=format&fit=crop&w=1000&q=80",
-    after:
-      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1100&q=80",
   },
   {
-    title: "Straight & aligned",
+    title: "Straight and aligned",
     treatment: "Clear Aligner Therapy",
     description:
-      "Crowding corrected over a digitally planned aligner journey — no metal, no fuss.",
-    before:
-      "https://images.unsplash.com/photo-1542736667-069246bdbc6d?auto=format&fit=crop&w=1000&q=80",
-    after:
-      "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=80",
+      "Crowding corrected over a digitally planned aligner journey, no metal, no fuss.",
+    image:
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=80",
   },
   {
-    title: "Rebuilt & restored",
+    title: "Rebuilt and restored",
     treatment: "Zirconia Crowns",
     description:
       "Worn and damaged teeth restored to full strength and a seamless, natural finish.",
-    before:
-      "https://images.unsplash.com/photo-1581585099522-f4ac2efe7f4e?auto=format&fit=crop&w=1000&q=80",
-    after:
-      "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=1100&q=80",
   },
 ];
 
@@ -412,7 +498,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Do you offer emergency dental care?",
     answer:
-      "Yes. Dental emergencies — severe pain, swelling, trauma or a knocked-out tooth — are seen as a priority. Call us straight away on +234 703 653 1860 and we'll get you the fastest possible care, including on Sundays for emergencies.",
+      "Yes. Dental emergencies, severe pain, swelling, trauma or a knocked-out tooth, are seen as a priority. Call us straight away on +234 703 653 1860 and we'll get you the fastest possible care, including on Sundays for emergencies.",
   },
   {
     question: "Where is Oaklands located?",
@@ -430,7 +516,7 @@ export const values = [
   {
     title: "Patient-first comfort",
     description:
-      "Every detail — from our calm interiors to gentle clinical technique — is designed around how you feel.",
+      "Every detail, from our calm interiors to gentle clinical technique, is designed around how you feel.",
     icon: "HeartHandshake",
   },
   {
@@ -448,7 +534,7 @@ export const values = [
   {
     title: "Smiles that last",
     description:
-      "We treat the cause, not just the symptom — protecting your oral health and confidence for the long term.",
+      "We treat the cause, not just the symptom, protecting your oral health and confidence for the long term.",
     icon: "Infinity",
   },
 ];
@@ -538,19 +624,19 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1559757175-082c4a3f6f0c?auto=format&fit=crop&w=1200&q=80",
     content: [
-      "A radiant smile is built on the quiet consistency of everyday habits. While professional cleanings and treatments do the heavy lifting, the way you care for your teeth between visits determines how long your results last — and how healthy your mouth stays for life.",
+      "A radiant smile is built on the quiet consistency of everyday habits. While professional cleanings and treatments do the heavy lifting, the way you care for your teeth between visits determines how long your results last, and how healthy your mouth stays for life.",
       "First, brush for a full two minutes, twice a day, with a soft-bristled brush and fluoride toothpaste. Technique matters more than force: angle the brush gently towards the gumline and let the bristles do the work. Aggressive scrubbing wears enamel and irritates gums.",
-      "Second, never skip flossing. The spaces between your teeth account for a large share of decay and gum disease, and no brush can reach them. A daily floss — or interdental brush — is the single most underrated habit in dentistry.",
+      "Second, never skip flossing. The spaces between your teeth account for a large share of decay and gum disease, and no brush can reach them. A daily floss, or interdental brush, is the single most underrated habit in dentistry.",
       "Third, rethink the snacking. Frequent sugar and acidic drinks keep your mouth in a constant cycle of acid attack. Water is always the best choice, and finishing meals with water helps rinse away residue.",
       "Fourth, don't ignore your tongue. A gentle tongue clean reduces the bacteria responsible for bad breath and contributes to fresher, cleaner-feeling mouth all day.",
-      "Finally, keep your routine checkups. Prevention is always easier, gentler and more affordable than treatment. Twice-yearly visits let us catch issues early — often before you'd ever notice them.",
+      "Finally, keep your routine checkups. Prevention is always easier, gentler and more affordable than treatment. Twice-yearly visits let us catch issues early, often before you'd ever notice them.",
     ],
   },
   {
     slug: "the-truth-about-teeth-whitening",
     title: "The truth about teeth whitening: what actually works",
     excerpt:
-      "From charcoal trends to professional laser systems — we separate myth from evidence so you can choose safely.",
+      "From charcoal trends to professional laser systems, we separate myth from evidence so you can choose safely.",
     category: "Cosmetic",
     readingTime: "5 min read",
     date: "2026-04-29",
@@ -558,18 +644,18 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80",
     content: [
-      "Teeth whitening is one of the most requested treatments in cosmetic dentistry — and one of the most misunderstood. The internet is full of dramatic before-and-afters and DIY trends, but not all of them are safe, and very few deliver lasting, natural results.",
+      "Teeth whitening is one of the most requested treatments in cosmetic dentistry, and one of the most misunderstood. The internet is full of dramatic before-and-afters and DIY trends, but not all of them are safe, and very few deliver lasting, natural results.",
       "Let's start with the trends. Charcoal pastes and acidic fruit 'hacks' are abrasive: they may make teeth feel cleaner briefly, but over time they erode enamel, which can actually make teeth look more yellow as the darker dentine beneath shows through.",
       "Over-the-counter strips can offer mild improvement, but the concentration is low and the fit is generic. Without a custom tray, the gel often irritates gums and whitens unevenly.",
-      "Professional whitening is different. We assess your enamel, protect your gums and use medical-grade gels — often activated with a gentle laser — to lift staining safely and evenly. The result is dramatic yet natural, and we calibrate the shade so it suits your face.",
-      "The best part is longevity. With take-home maintenance trays and a few simple habits, professional results last far longer than any quick fix. If a brighter smile is on your list, let an experienced clinician guide you — your enamel will thank you.",
+      "Professional whitening is different. We assess your enamel, protect your gums and use medical-grade gels, often activated with a gentle laser, to lift staining safely and evenly. The result is dramatic yet natural, and we calibrate the shade so it suits your face.",
+      "The best part is longevity. With take-home maintenance trays and a few simple habits, professional results last far longer than any quick fix. If a brighter smile is on your list, let an experienced clinician guide you, your enamel will thank you.",
     ],
   },
   {
     slug: "conquering-dental-anxiety",
     title: "Conquering dental anxiety: a gentler way to care",
     excerpt:
-      "Nervous about the dentist? You're not alone — and modern, comfort-first dentistry can change everything.",
+      "Nervous about the dentist? You're not alone, and modern, comfort-first dentistry can change everything.",
     category: "Patient Comfort",
     readingTime: "4 min read",
     date: "2026-03-12",
@@ -577,9 +663,9 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1606265752439-1f18756aa8ed?auto=format&fit=crop&w=1200&q=80",
     content: [
-      "Dental anxiety is incredibly common, and it's nothing to be ashamed of. For many people it stems from a difficult experience years ago — and that memory can quietly delay the very care that would put them at ease.",
+      "Dental anxiety is incredibly common, and it's nothing to be ashamed of. For many people it stems from a difficult experience years ago, and that memory can quietly delay the very care that would put them at ease.",
       "The good news is that modern dentistry is almost unrecognisable from the past. Gentle anaesthesia, refined techniques and calm, spa-like environments mean treatments that once felt daunting are now genuinely comfortable.",
-      "At Oaklands, we start by listening. Tell us what makes you anxious and we'll adapt — whether that's explaining each step before we begin, agreeing on a signal to pause, or simply taking things at your pace.",
+      "At Oaklands, we start by listening. Tell us what makes you anxious and we'll adapt, whether that's explaining each step before we begin, agreeing on a signal to pause, or simply taking things at your pace.",
       "Small comforts matter too: a warm, quiet space, friendly faces, and never being rushed. Many of our most nervous patients tell us afterwards that the appointment was nothing like they feared.",
       "If anxiety has kept you away, please don't let it keep you in discomfort. Reach out, tell us how you feel, and let us show you a gentler way to care for your smile.",
     ],

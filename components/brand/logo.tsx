@@ -7,7 +7,7 @@ type LogoProps = {
 };
 
 /**
- * Oaklands brand emblem — an oak leaf nested within a protective tooth/shield
+ * Oaklands brand emblem, an oak leaf nested within a protective tooth/shield
  * silhouette, echoing the clinic's name and its restorative promise.
  */
 export function LogoMark({
@@ -32,7 +32,9 @@ export function LogoMark({
       {/* Tooth / shield silhouette */}
       <path
         d="M24 3.5c5.4 0 9.2 2.2 11.7 4 1.9 1.4 3 3.6 3 6 0 4.2-.8 7.4-1.7 11.2-.9 3.6-1.6 8.2-2.6 12.6-.7 3-1.4 6.2-3.9 6.9-2.4.7-3.4-2-4-4.6-.7-3-1.3-6.3-2.5-6.3s-1.8 3.3-2.5 6.3c-.6 2.6-1.6 5.3-4 4.6-2.5-.7-3.2-3.9-3.9-6.9-1-4.4-1.7-9-2.6-12.6C9.6 20.9 8.8 17.7 8.8 13.5c0-2.4 1.1-4.6 3-6 2.5-1.8 6.8-4 12.2-4Z"
-        fill={variant === "light" ? "rgba(255,255,255,0.10)" : "rgba(11,36,71,0.06)"}
+        fill={
+          variant === "light" ? "rgba(255,255,255,0.10)" : "rgba(11,36,71,0.06)"
+        }
         stroke={primary}
         strokeWidth="1.6"
         strokeLinejoin="round"
@@ -68,7 +70,7 @@ export function Logo({
           <span
             className={cn(
               "font-display text-lg font-semibold tracking-tight",
-              textColor
+              textColor,
             )}
           >
             Oaklands
@@ -76,7 +78,7 @@ export function Logo({
           <span
             className={cn(
               "text-[0.58rem] font-semibold uppercase tracking-[0.28em]",
-              variant === "light" ? "text-gold-300" : "text-gold-600"
+              variant === "light" ? "text-gold-300" : "text-gold-600",
             )}
           >
             Dental Clinic

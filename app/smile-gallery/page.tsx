@@ -13,7 +13,7 @@ import { TestimonialsPreview } from "@/components/home/testimonials-preview";
 export const metadata: Metadata = {
   title: "Smile Gallery",
   description:
-    "Explore real before-and-after smile transformations from Oaklands Dental Clinic — veneers, whitening, aligners, crowns and full smile makeovers in Owerri.",
+    "Explore real before-and-after smile transformations from Oaklands Dental Clinic, veneers, whitening, aligners, crowns and full smile makeovers in Owerri.",
 };
 
 export default function SmileGalleryPage() {
@@ -34,7 +34,7 @@ export default function SmileGalleryPage() {
             eyebrow="Before &amp; after"
             title="See the difference for yourself"
             highlight="difference"
-            description="Slide to reveal each transformation — the artistry is in the detail."
+            description="Slide to reveal each transformation, the artistry is in the detail."
           />
 
           <div className="mt-16 space-y-20">
@@ -46,7 +46,7 @@ export default function SmileGalleryPage() {
                 }`}
               >
                 <Reveal>
-                  <BeforeAfterSlider before={c.before} after={c.after} />
+                  <BeforeAfterSlider image={c.image} />
                 </Reveal>
                 <div className={i % 2 === 1 ? "lg:pr-8" : "lg:pl-8"}>
                   <Reveal delay={0.1}>

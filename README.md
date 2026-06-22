@@ -22,17 +22,17 @@ luxurious and patient-focused.
 
 ## 🧰 Tech Stack
 
-| Area              | Choice                                      |
-| ----------------- | ------------------------------------------- |
-| Framework         | Next.js 15 (App Router) + React 19          |
-| Language          | TypeScript                                  |
-| Styling           | Tailwind CSS + custom design system         |
-| UI primitives     | shadcn/ui (Radix UI)                         |
-| Scroll animation  | GSAP + ScrollTrigger                        |
-| UI animation      | Framer Motion                               |
-| Smooth scroll     | Lenis                                       |
-| Icons             | lucide-react                                |
-| Carousel          | Embla                                       |
+| Area             | Choice                              |
+| ---------------- | ----------------------------------- |
+| Framework        | Next.js 15 (App Router) + React 19  |
+| Language         | TypeScript                          |
+| Styling          | Tailwind CSS + custom design system |
+| UI primitives    | shadcn/ui (Radix UI)                |
+| Scroll animation | GSAP + ScrollTrigger                |
+| UI animation     | Framer Motion                       |
+| Smooth scroll    | Lenis                               |
+| Icons            | lucide-react                        |
+| Carousel         | Embla                               |
 
 ## 🎨 Design language
 
@@ -89,3 +89,16 @@ eight core services — are retained from the existing brand and live in
 > echoing the "Oaklands" name). Drop the official logo into `public/` and swap
 > it into `components/brand/logo.tsx` to use the exact asset. Photography uses
 > royalty-free Unsplash imagery as production placeholders.
+
+### Hero video & resilient images
+
+- Every page hero uses a cinematic `VideoBackdrop` (animated gradient + slow-zoom
+  poster + a looping muted video that fades in once it can play). The candidate
+  video URLs live in `media.heroVideos` in [`lib/site.ts`](./lib/site.ts) —
+  replace them with the clinic's own footage. If a video can't load, the hero
+  still looks premium thanks to the poster + animated gradient.
+- All photography is rendered through `SmartImage`, which falls back to an
+  on-brand gradient placeholder if a remote image fails to load — so the layout
+  never shows a broken image.
+- The before/after gallery uses a single source photo per case and simulates the
+  "before" state with a CSS filter, so the comparison always renders.

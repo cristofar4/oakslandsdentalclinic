@@ -19,23 +19,26 @@ export function Counter({
   className,
   duration = 2,
 }: CounterProps) {
-  const ref = useGsapContext((ctx) => {
-    const el = ctx.self.querySelector(".counter-value");
-    if (!el) return;
-    const obj = { val: 0 };
-    gsap.to(obj, {
-      val: value,
-      duration,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ctx.self,
-        start: "top 88%",
-      },
-      onUpdate: () => {
-        el.textContent = Math.floor(obj.val).toLocaleString("en-US");
-      },
-    });
-  }, [value]);
+  const ref = useGsapContext(
+    (ctx) => {
+      const el = ctx.self.querySelector(".counter-value");
+      if (!el) return;
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: value,
+        duration,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ctx.self,
+          start: "top 88%",
+        },
+        onUpdate: () => {
+          el.textContent = Math.floor(obj.val).toLocaleString("en-US");
+        },
+      });
+    },
+    [value],
+  );
 
   return (
     <div ref={ref} className={cn("tabular-nums", className)}>

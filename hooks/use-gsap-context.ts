@@ -10,7 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  */
 export function useGsapContext(
   callback: (ctx: { self: HTMLElement }) => void,
-  deps: React.DependencyList = []
+  deps: React.DependencyList = [],
 ) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -19,7 +19,7 @@ export function useGsapContext(
     if (!el) return;
 
     const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (prefersReduced) {
       // Make sure anything hidden for animation becomes visible.

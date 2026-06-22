@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
@@ -14,13 +14,13 @@ export function LightboxGallery() {
   const prev = useCallback(
     () =>
       setIndex((i) =>
-        i === null ? i : (i - 1 + galleryImages.length) % galleryImages.length
+        i === null ? i : (i - 1 + galleryImages.length) % galleryImages.length,
       ),
-    []
+    [],
   );
   const next = useCallback(
     () => setIndex((i) => (i === null ? i : (i + 1) % galleryImages.length)),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -49,7 +49,11 @@ export function LightboxGallery() {
           >
             <div
               className={`relative w-full ${
-                i % 3 === 0 ? "aspect-[3/4]" : i % 3 === 1 ? "aspect-square" : "aspect-[4/5]"
+                i % 3 === 0
+                  ? "aspect-[3/4]"
+                  : i % 3 === 1
+                    ? "aspect-square"
+                    : "aspect-[4/5]"
               }`}
             >
               <Image

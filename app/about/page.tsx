@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 
@@ -20,7 +20,7 @@ import { Parallax } from "@/components/shared/parallax";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Discover the story of Oaklands Multispecialty Dental Care Clinic — founded in 2015 in Owerri, Imo State, and now the region's most trusted dental brand.",
+    "Discover the story of Oaklands Multispecialty Dental Care Clinic, founded in 2015 in Owerri, Imo State, and now the region's most trusted dental brand.",
 };
 
 const proofPoints = [
@@ -37,7 +37,7 @@ export default function AboutPage() {
         eyebrow="About Oaklands"
         title="Redefining dental care in the heart of Owerri"
         highlight="dental"
-        description="More than a clinic — a sanctuary of expertise, comfort and craftsmanship where every smile is treated as a work of art."
+        description="More than a clinic, a sanctuary of expertise, comfort and craftsmanship where every smile is treated as a work of art."
         crumbs={[{ label: "About" }]}
       />
 
@@ -88,16 +88,16 @@ export default function AboutPage() {
             <Reveal delay={0.1}>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {site.legalName} began in 2015 with a single, passionate dentist
-                — Dr. David Wilfred — and an uncompromising belief that
-                world-class dentistry belongs right here in Owerri. What started
-                as a modest practice of three has grown into a multispecialty
-                team of 16+ clinicians serving over 20,000 patients.
+                Dr. David Wilfred, and an uncompromising belief that world-class
+                dentistry belongs right here in Owerri. What started as a modest
+                practice of three has grown into a multispecialty team of 16+
+                clinicians serving over 20,000 patients.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 Today, Oaklands is recognised as Imo State&apos;s leading dental
-                clinic — but our mission has never changed: to improve smiles,
+                clinic, but our mission has never changed: to improve smiles,
                 restore confidence and relieve pain, with care that always feels
                 personal.
               </p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Check,
@@ -42,12 +42,15 @@ type FormData = {
   notes: string;
 };
 
-const today = new Date().toISOString().split("T")[0];
-
 export function BookingFlow() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  // Computed on the client only to avoid a server/client hydration mismatch.
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    setToday(new Date().toISOString().split("T")[0]);
+  }, []);
   const [data, setData] = useState<FormData>({
     service: "",
     date: "",
@@ -107,7 +110,10 @@ export function BookingFlow() {
       <div className="border-b border-border/60 bg-ivory/50 p-6 md:p-8">
         <div className="flex items-center justify-between">
           {steps.map((label, i) => (
-            <div key={label} className="flex flex-1 items-center last:flex-none">
+            <div
+              key={label}
+              className="flex flex-1 items-center last:flex-none"
+            >
               <div className="flex items-center gap-3">
                 <div
                   className={cn(
@@ -116,7 +122,7 @@ export function BookingFlow() {
                       ? "border-teal bg-teal text-white"
                       : i === step
                         ? "border-gold bg-gold text-navy-950"
-                        : "border-navy/15 bg-white text-navy/40"
+                        : "border-navy/15 bg-white text-navy/40",
                   )}
                 >
                   {i < step ? <Check className="h-4 w-4" /> : i + 1}
@@ -124,7 +130,7 @@ export function BookingFlow() {
                 <span
                   className={cn(
                     "hidden text-sm font-medium md:block",
-                    i <= step ? "text-navy" : "text-navy/40"
+                    i <= step ? "text-navy" : "text-navy/40",
                   )}
                 >
                   {label}
@@ -135,7 +141,7 @@ export function BookingFlow() {
                   <div
                     className={cn(
                       "h-full rounded-full bg-teal transition-all duration-500",
-                      i < step ? "w-full" : "w-0"
+                      i < step ? "w-full" : "w-0",
                     )}
                   />
                 </div>
@@ -160,7 +166,7 @@ export function BookingFlow() {
                 <StepTitle
                   icon={<Sparkles className="h-5 w-5" />}
                   title="Which treatment interests you?"
-                  subtitle="Select the service you'd like to book — you can discuss details at your visit."
+                  subtitle="Select the service you'd like to book, you can discuss details at your visit."
                 />
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
                   {services.map((s) => (
@@ -171,7 +177,7 @@ export function BookingFlow() {
                         "flex items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all duration-300",
                         data.service === s.slug
                           ? "border-gold bg-gold/5 shadow-soft"
-                          : "border-border hover:border-navy/30 hover:bg-navy/[0.02]"
+                          : "border-border hover:border-navy/30 hover:bg-navy/[0.02]",
                       )}
                     >
                       <span
@@ -179,7 +185,7 @@ export function BookingFlow() {
                           "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors",
                           data.service === s.slug
                             ? "bg-gold text-navy-950"
-                            : "bg-navy/5 text-navy"
+                            : "bg-navy/5 text-navy",
                         )}
                       >
                         <Icon name={s.icon} className="h-5 w-5" />
@@ -228,7 +234,7 @@ export function BookingFlow() {
                             "rounded-xl border-2 py-3 text-sm font-medium transition-all duration-300",
                             data.time === t
                               ? "border-gold bg-gold/10 text-navy"
-                              : "border-border text-navy/60 hover:border-navy/30"
+                              : "border-border text-navy/60 hover:border-navy/30",
                           )}
                         >
                           {t}
@@ -281,7 +287,9 @@ export function BookingFlow() {
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <Label htmlFor="notes">Anything we should know? (optional)</Label>
+                    <Label htmlFor="notes">
+                      Anything we should know? (optional)
+                    </Label>
                     <Textarea
                       id="notes"
                       value={data.notes}
@@ -309,7 +317,7 @@ export function BookingFlow() {
                     ["Name", data.name],
                     ["Email", data.email],
                     ["Phone", data.phone],
-                    ["Notes", data.notes || "—"],
+                    ["Notes", data.notes || ", "],
                   ].map(([label, value]) => (
                     <div
                       key={label}
@@ -388,24 +396,24 @@ function Confirmation({
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="overflow-hidden rounded-[2rem] border border-border/70 bg-white text-center shadow-glow"
     >
-      <div className="relative overflow-hidden bg-navy-950 px-8 py-14 text-white">
-        <div className="pointer-events-none absolute inset-0 bg-grid-navy opacity-[0.08] [background-size:32px_32px]" />
-        <div className="pointer-events-none absolute -left-10 top-0 h-48 w-48 rounded-full bg-teal/30 blur-[80px]" />
-        <div className="pointer-events-none absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-gold/30 blur-[80px]" />
+      <div className="relative overflow-hidden bg-gradient-to-br from-ivory via-white to-gold/15 px-8 py-14 text-navy">
+        <div className="pointer-events-none absolute inset-0 bg-grid-navy opacity-[0.04] [background-size:32px_32px]" />
+        <div className="pointer-events-none absolute -left-10 top-0 h-48 w-48 rounded-full bg-teal/20 blur-[80px]" />
+        <div className="pointer-events-none absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-gold/25 blur-[80px]" />
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gold text-navy-950"
+          className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gold text-navy-950 shadow-gold"
         >
           <PartyPopper className="h-9 w-9" />
         </motion.div>
-        <h3 className="relative mt-6 font-display text-3xl font-semibold text-white">
+        <h3 className="relative mt-6 font-display text-3xl font-semibold text-navy">
           Your request is in!
         </h3>
-        <p className="relative mx-auto mt-3 max-w-md text-white/70">
-          Thank you, {data.name.split(" ")[0]}. Our team will call you shortly to
-          confirm your {serviceName?.toLowerCase()} appointment.
+        <p className="relative mx-auto mt-3 max-w-md text-muted-foreground">
+          Thank you, {data.name.split(" ")[0]}. Our team will call you shortly
+          to confirm your {serviceName?.toLowerCase()} appointment.
         </p>
       </div>
 

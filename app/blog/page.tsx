@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Calendar } from "lucide-react";
 
@@ -32,7 +32,7 @@ export default function BlogPage() {
         eyebrow="The Oaklands journal"
         title="Insights for healthier, brighter smiles"
         highlight="brighter"
-        description="Expert guidance, dental wellness tips and the latest from our clinic — written by the people who care for your smile."
+        description="Expert guidance, dental wellness tips and the latest from our clinic, written by the people who care for your smile."
         crumbs={[{ label: "Journal" }]}
       />
 
@@ -53,7 +53,10 @@ export default function BlogPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <Badge variant="gold" className="absolute left-5 top-5 bg-white/90 backdrop-blur">
+                <Badge
+                  variant="gold"
+                  className="absolute left-5 top-5 bg-white/90 backdrop-blur"
+                >
                   Featured
                 </Badge>
               </div>

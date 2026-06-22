@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { Quote, ArrowRight, BadgeCheck } from "lucide-react";
 
@@ -75,8 +75,9 @@ export function AboutPreview() {
             <div className="mt-6 rounded-2xl border-l-2 border-gold bg-ivory/60 p-6">
               <Quote className="h-6 w-6 text-gold-400" />
               <p className="mt-3 font-display text-lg italic leading-relaxed text-navy/90">
-                &ldquo;{site.legalName} began with a simple yet powerful mission:
-                to improve smiles, restore confidence, and relieve dental pain.&rdquo;
+                &ldquo;{site.legalName} began with a simple yet powerful
+                mission: to improve smiles, restore confidence, and relieve
+                dental pain.&rdquo;
               </p>
             </div>
           </Reveal>
@@ -84,7 +85,7 @@ export function AboutPreview() {
           <Reveal delay={0.15}>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               What started as a modest practice of three has blossomed into Imo
-              State&apos;s most trusted dental destination — serving over 20,000
+              State&apos;s most trusted dental destination, serving over 20,000
               patients with care that feels personal, precise and reassuringly
               gentle.
             </p>

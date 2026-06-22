@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Clock, Phone, MapPin, ShieldCheck, HeartHandshake, Zap } from "lucide-react";
+import {
+  Clock,
+  Phone,
+  MapPin,
+  ShieldCheck,
+  HeartHandshake,
+  Zap,
+} from "lucide-react";
 
 import { site } from "@/lib/site";
 import { formatPhoneHref } from "@/lib/utils";
@@ -14,9 +21,21 @@ export const metadata: Metadata = {
 };
 
 const reassurances = [
-  { icon: Zap, title: "Same-week slots", text: "Flexible times that fit your schedule." },
-  { icon: ShieldCheck, title: "No obligation", text: "A relaxed consultation, no pressure." },
-  { icon: HeartHandshake, title: "Gentle care", text: "Comfort-first from the moment you arrive." },
+  {
+    icon: Zap,
+    title: "Same-week slots",
+    text: "Flexible times that fit your schedule.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "No obligation",
+    text: "A relaxed consultation, no pressure.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Gentle care",
+    text: "Comfort-first from the moment you arrive.",
+  },
 ];
 
 export default function AppointmentsPage() {
@@ -50,7 +69,9 @@ export default function AppointmentsPage() {
                       </span>
                       <div>
                         <p className="font-medium text-navy">{r.title}</p>
-                        <p className="text-sm text-muted-foreground">{r.text}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {r.text}
+                        </p>
                       </div>
                     </li>
                   ))}
@@ -59,34 +80,38 @@ export default function AppointmentsPage() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="overflow-hidden rounded-2xl border border-border/70 bg-navy-950 text-white shadow-soft">
+              <div className="overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-ivory to-gold/10 shadow-soft">
                 <div className="p-7">
-                  <h3 className="font-display text-xl font-semibold text-white">
+                  <h3 className="font-display text-xl font-semibold text-navy">
                     Prefer to talk?
                   </h3>
-                  <p className="mt-2 text-sm text-white/60">
+                  <p className="mt-2 text-sm text-muted-foreground">
                     Our friendly team is ready to help you book over the phone.
                   </p>
                   <a
                     href={`tel:${formatPhoneHref(site.phoneHref)}`}
-                    className="mt-5 flex items-center gap-3 rounded-xl bg-white/5 p-4 transition-colors hover:bg-white/10"
+                    className="mt-5 flex items-center gap-3 rounded-xl border border-border/70 bg-white p-4 shadow-soft transition-colors hover:border-gold/50"
                   >
-                    <Phone className="h-5 w-5 text-gold-300" />
-                    <span className="font-semibold">{site.phone}</span>
+                    <Phone className="h-5 w-5 text-gold-600" />
+                    <span className="font-semibold text-navy">
+                      {site.phone}
+                    </span>
                   </a>
                 </div>
-                <div className="space-y-3 border-t border-white/10 p-7 text-sm">
+                <div className="space-y-3 border-t border-gold/20 p-7 text-sm">
                   <div className="flex gap-3">
-                    <Clock className="h-4 w-4 shrink-0 text-gold-300" />
-                    <span className="text-white/70">
-                      Mon–Fri 8AM–8PM · Sat 9AM–7PM
+                    <Clock className="h-4 w-4 shrink-0 text-gold-600" />
+                    <span className="text-muted-foreground">
+                      Mon to Fri 8AM to 8PM · Sat 9AM to 7PM
                       <br />
-                      Sunday — emergencies only
+                      Sunday, emergencies only
                     </span>
                   </div>
                   <div className="flex gap-3">
-                    <MapPin className="h-4 w-4 shrink-0 text-gold-300" />
-                    <span className="text-white/70">{site.address.full}</span>
+                    <MapPin className="h-4 w-4 shrink-0 text-gold-600" />
+                    <span className="text-muted-foreground">
+                      {site.address.full}
+                    </span>
                   </div>
                 </div>
               </div>

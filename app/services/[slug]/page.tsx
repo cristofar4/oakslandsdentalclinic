@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ArrowLeft, Check, Clock, CalendarDays, Phone } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Clock,
+  CalendarDays,
+  Phone,
+} from "lucide-react";
 
 import { services, site } from "@/lib/site";
 import { formatPhoneHref } from "@/lib/utils";
@@ -49,7 +56,10 @@ export default async function ServiceDetailPage({
         eyebrow={service.category}
         title={service.title}
         description={service.description}
-        crumbs={[{ label: "Services", href: "/services" }, { label: service.title }]}
+        crumbs={[
+          { label: "Services", href: "/services" },
+          { label: service.title },
+        ]}
       />
 
       <section className="bg-white py-20 lg:py-28">

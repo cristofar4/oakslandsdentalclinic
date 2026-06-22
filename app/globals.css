@@ -94,7 +94,7 @@
     border: 2px solid #f1f4f9;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #0B2447;
+    background: #0b2447;
   }
 }
 
@@ -129,7 +129,7 @@
   }
 
   .text-gradient-navy {
-    background: linear-gradient(120deg, #0B2447, #2f5191 60%, #2BA89E);
+    background: linear-gradient(120deg, #0b2447, #2f5191 60%, #2ba89e);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -157,7 +157,13 @@
   }
 
   .mask-fade-r {
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
   }
 
   .perspective {

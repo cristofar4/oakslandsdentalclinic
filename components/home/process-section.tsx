@@ -20,7 +20,7 @@ export function ProcessSection() {
           end: "bottom 70%",
           scrub: 0.6,
         },
-      }
+      },
     );
 
     gsap.utils.toArray<HTMLElement>(".process-step").forEach((step) => {
@@ -41,7 +41,7 @@ export function ProcessSection() {
             backgroundColor: "#C9A24B",
             duration: 0.4,
             scrollTrigger: { trigger: step, start: "top 70%" },
-          }
+          },
         );
       }
     });
@@ -54,7 +54,7 @@ export function ProcessSection() {
           eyebrow="The experience"
           title="Your journey to a confident smile"
           highlight="confident"
-          description="Four considered steps designed around your comfort — clear, calm and entirely tailored to you."
+          description="Four considered steps designed around your comfort, clear, calm and entirely tailored to you."
         />
 
         <div className="process-track relative mx-auto mt-16 max-w-3xl">

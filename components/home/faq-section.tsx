@@ -25,7 +25,8 @@ export function FaqSection() {
                 Can&apos;t find your answer?
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Reach out and we&apos;ll get back to you within one business day.
+                Reach out and we&apos;ll get back to you within one business
+                day.
               </p>
               <Button asChild variant="outline" size="sm" className="mt-4">
                 <Link href="/contact">

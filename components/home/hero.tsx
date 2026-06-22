@@ -1,16 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
-import { Star, ShieldCheck, CalendarDays, ArrowRight, Phone } from "lucide-react";
+import {
+  Star,
+  ShieldCheck,
+  CalendarDays,
+  ArrowRight,
+  Phone,
+} from "lucide-react";
 
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 import { formatPhoneHref } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/shared/magnetic";
+import { VideoBackdrop } from "@/components/shared/video-backdrop";
 import { useGsapContext } from "@/hooks/use-gsap-context";
 
 export function Hero() {
@@ -24,60 +29,56 @@ export function Hero() {
       .from(
         ".hero-fade",
         { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 },
-        "-=0.6"
-      )
-      .from(
-        ".hero-visual",
-        { scale: 0.92, opacity: 0, duration: 1.2, ease: "power3.out" },
-        "-=1"
+        "-=0.6",
       )
       .from(
         ".hero-float",
         { y: 30, opacity: 0, duration: 0.8, stagger: 0.15 },
-        "-=0.7"
+        "-=0.7",
       );
   }, []);
-
-  const visualRef = useRef<HTMLDivElement>(null);
 
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-ivory pt-28 lg:pt-36"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32 text-white lg:pt-36"
     >
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute inset-0 bg-grid-navy [background-size:42px_42px] opacity-[0.5]" />
-      <div className="pointer-events-none absolute -left-40 top-20 h-[32rem] w-[32rem] rounded-full bg-teal/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-32 top-40 h-[28rem] w-[28rem] rounded-full bg-gold/10 blur-[120px]" />
+      <VideoBackdrop
+        poster={media.heroPoster}
+        sources={[...media.heroVideos]}
+        overlay={58}
+      />
 
-      <div className="container relative grid items-center gap-12 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pb-28">
+      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         {/* Copy */}
-        <div className="relative z-10">
-          <div className="hero-fade mb-6 inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white/70 py-2 pl-2 pr-4 text-sm shadow-soft backdrop-blur">
-            <span className="flex h-7 items-center gap-1 rounded-full bg-gold/15 px-2.5 text-gold-700">
-              <Star className="h-3.5 w-3.5 fill-gold-500 text-gold-500" />
+        <div>
+          <div className="hero-fade mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 py-2 pl-2 pr-4 text-sm backdrop-blur">
+            <span className="flex h-7 items-center gap-1 rounded-full bg-gold/20 px-2.5 text-gold-200">
+              <Star className="h-3.5 w-3.5 fill-gold-300 text-gold-300" />
               <span className="font-semibold">4.9</span>
             </span>
-            <span className="text-navy/70">
+            <span className="text-white/80">
               Rated #1 dental clinic in Imo State
             </span>
           </div>
 
-          <h1 className="text-fluid-display font-semibold leading-[0.98] text-navy">
+          <h1 className="text-fluid-display font-semibold leading-[0.98] text-white">
             <span className="hero-line block overflow-hidden">
               <span className="inline-block">Dentistry that</span>
             </span>
             <span className="hero-line block overflow-hidden">
-              <span className="inline-block text-gradient-gold">feels luxurious</span>
+              <span className="inline-block text-gradient-gold">
+                feels luxurious
+              </span>
             </span>
             <span className="hero-line block overflow-hidden">
               <span className="inline-block">looks effortless.</span>
             </span>
           </h1>
 
-          <p className="hero-fade mt-7 max-w-md text-lg leading-relaxed text-muted-foreground">
+          <p className="hero-fade mt-7 max-w-md text-lg leading-relaxed text-white/75">
             At {site.name}, world-class care meets genuine comfort. From radiant
-            smile makeovers to gentle, pain-free treatment — your best smile
+            smile makeovers to gentle, pain-free treatment, your best smile
             begins in Owerri.
           </p>
 
@@ -90,7 +91,7 @@ export function Hero() {
                 </Link>
               </Button>
             </Magnetic>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline-light">
               <a href={`tel:${formatPhoneHref(site.phoneHref)}`}>
                 <Phone className="h-4 w-4" /> {site.phone}
               </a>
@@ -105,10 +106,10 @@ export function Hero() {
               { value: "10 yrs", label: "Of trusted care" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col">
-                <span className="font-display text-2xl font-semibold text-navy">
+                <span className="font-display text-2xl font-semibold text-white">
                   {item.value}
                 </span>
-                <span className="text-xs uppercase tracking-wider text-muted-foreground">
+                <span className="text-xs uppercase tracking-wider text-white/55">
                   {item.label}
                 </span>
               </div>
@@ -116,25 +117,12 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Visual */}
-        <div ref={visualRef} className="hero-visual relative z-0">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-white/60 shadow-glow lg:max-w-none">
-            <Image
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=80"
-              alt="A patient smiling confidently after dental treatment at Oaklands"
-              fill
-              priority
-              sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 via-transparent to-transparent" />
-          </div>
-
-          {/* Floating rating card */}
+        {/* Floating glass cards */}
+        <div className="relative hidden h-full min-h-[420px] lg:block">
           <motion.div
-            animate={{ y: [0, -12, 0] }}
+            animate={{ y: [0, -14, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="hero-float absolute -left-4 top-10 hidden sm:block"
+            className="hero-float absolute right-6 top-6"
           >
             <div className="glass flex items-center gap-3 rounded-2xl px-4 py-3 shadow-soft">
               <div className="flex -space-x-2">
@@ -158,11 +146,10 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Floating booking card */}
           <motion.div
-            animate={{ y: [0, 12, 0] }}
+            animate={{ y: [0, 14, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="hero-float absolute -bottom-6 -right-2 hidden w-64 sm:block"
+            className="hero-float absolute bottom-10 right-2 w-64"
           >
             <div className="glass rounded-2xl p-5 shadow-glow">
               <div className="flex items-center gap-2 text-teal-600">
@@ -186,7 +173,36 @@ export function Hero() {
               </Link>
             </div>
           </motion.div>
+
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="hero-float absolute left-2 top-1/3"
+          >
+            <div className="glass rounded-2xl px-5 py-4 shadow-soft">
+              <p className="font-display text-3xl font-semibold text-gradient-gold">
+                98%
+              </p>
+              <p className="text-xs font-medium text-navy">
+                Would recommend us
+              </p>
+            </div>
+          </motion.div>
         </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="hero-fade absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/60 lg:flex">
+        <span className="text-[0.65rem] uppercase tracking-[0.3em]">
+          Scroll
+        </span>
+        <span className="flex h-9 w-5 items-start justify-center rounded-full border border-white/30 p-1">
+          <motion.span
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity }}
+            className="h-1.5 w-1.5 rounded-full bg-gold"
+          />
+        </span>
       </div>
     </section>
   );

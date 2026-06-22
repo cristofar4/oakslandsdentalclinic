@@ -20,9 +20,7 @@ export function ServicesExplorer() {
   const [active, setActive] = useState<(typeof categories)[number]>("All");
 
   const filtered: Service[] =
-    active === "All"
-      ? services
-      : services.filter((s) => s.category === active);
+    active === "All" ? services : services.filter((s) => s.category === active);
 
   return (
     <div>
@@ -35,7 +33,7 @@ export function ServicesExplorer() {
               "rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300",
               active === cat
                 ? "bg-navy text-white shadow-soft"
-                : "bg-white text-navy/60 hover:bg-navy/5 hover:text-navy"
+                : "bg-white text-navy/60 hover:bg-navy/5 hover:text-navy",
             )}
           >
             {cat}

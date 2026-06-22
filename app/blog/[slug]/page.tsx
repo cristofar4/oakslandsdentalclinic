@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
@@ -64,7 +64,8 @@ export default async function BlogPostPage({
               <User className="h-4 w-4 text-gold-500" /> {post.author}
             </span>
             <span className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4 text-gold-500" /> {formatDate(post.date)}
+              <Calendar className="h-4 w-4 text-gold-500" />{" "}
+              {formatDate(post.date)}
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="h-4 w-4 text-gold-500" /> {post.readingTime}
@@ -104,7 +105,11 @@ export default async function BlogPostPage({
           {/* Author card */}
           <div className="mt-14 flex items-center gap-4 rounded-2xl border border-border/70 bg-ivory/60 p-6">
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-navy to-navy-700 font-display text-lg font-semibold text-white">
-              {post.author.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+              {post.author
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)}
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground">

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
@@ -21,7 +21,11 @@ export function ServiceCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: (index % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.6,
+        delay: (index % 4) * 0.08,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       <Link
         href={`/services/${service.slug}`}

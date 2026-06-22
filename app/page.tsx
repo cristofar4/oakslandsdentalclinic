@@ -8,6 +8,7 @@ import { ProcessSection } from "@/components/home/process-section";
 import { SmileShowcase } from "@/components/home/smile-showcase";
 import { TestimonialsPreview } from "@/components/home/testimonials-preview";
 import { FaqSection } from "@/components/home/faq-section";
+import { CtaBand } from "@/components/shared/cta-band";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <SmileShowcase />
       <TestimonialsPreview />
       <FaqSection />
+      <CtaBand />
     </>
   );
 }

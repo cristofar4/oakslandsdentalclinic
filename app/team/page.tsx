@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import { Quote, Sparkles } from "lucide-react";
 
 import { team } from "@/lib/site";
@@ -12,7 +12,7 @@ import { CtaBand } from "@/components/shared/cta-band";
 export const metadata: Metadata = {
   title: "Meet The Team",
   description:
-    "Meet the specialists behind Oaklands Dental Clinic — led by founder Dr. David Wilfred, our multispecialty team brings expertise, artistry and genuine care.",
+    "Meet the specialists behind Oaklands Dental Clinic, led by founder Dr. David Wilfred, our multispecialty team brings expertise, artistry and genuine care.",
 };
 
 export default function TeamPage() {
@@ -116,7 +116,7 @@ export default function TeamPage() {
 
       <CtaBand
         title="Care from people who genuinely care"
-        description="Experience the Oaklands difference for yourself — book a visit with our team today."
+        description="Experience the Oaklands difference for yourself, book a visit with our team today."
       />
     </>
   );

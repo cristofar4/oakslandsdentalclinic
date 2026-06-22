@@ -38,7 +38,11 @@ export function ContactForm() {
           Thank you for reaching out. Our team will get back to you within one
           business day.
         </p>
-        <Button variant="outline" className="mt-6" onClick={() => setSent(false)}>
+        <Button
+          variant="outline"
+          className="mt-6"
+          onClick={() => setSent(false)}
+        >
           Send another message
         </Button>
       </motion.div>
@@ -64,7 +68,12 @@ export function ContactForm() {
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <div>
           <Label htmlFor="c-name">Full name</Label>
-          <Input id="c-name" required placeholder="Your name" className="mt-2" />
+          <Input
+            id="c-name"
+            required
+            placeholder="Your name"
+            className="mt-2"
+          />
         </div>
         <div>
           <Label htmlFor="c-phone">Phone</Label>
@@ -115,7 +124,12 @@ export function ContactForm() {
         </div>
       </div>
 
-      <Button type="submit" variant="gold" size="lg" className="mt-7 w-full sm:w-auto">
+      <Button
+        type="submit"
+        variant="gold"
+        size="lg"
+        className="mt-7 w-full sm:w-auto"
+      >
         <Send className="h-4 w-4" /> Send message
       </Button>
     </form>

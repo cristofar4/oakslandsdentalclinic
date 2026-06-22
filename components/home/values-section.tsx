@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SmartImage as Image } from "@/components/shared/smart-image";
 import { values } from "@/lib/site";
 import { Icon } from "@/components/shared/icon";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -15,7 +15,7 @@ export function ValuesSection() {
             eyebrow="Why Oaklands"
             title="The difference is in the details"
             highlight="details"
-            description="Patients don't just choose us for our clinical results — they stay for how we make them feel."
+            description="Patients don't just choose us for our clinical results, they stay for how we make them feel."
           />
 
           <div className="relative mt-10 hidden overflow-hidden rounded-2xl shadow-soft lg:block">

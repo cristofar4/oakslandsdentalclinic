@@ -18,7 +18,7 @@ export function TestimonialCarousel() {
 
   const scrollTo = useCallback(
     (i: number) => emblaApi?.scrollTo(i),
-    [emblaApi]
+    [emblaApi],
   );
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -88,7 +88,9 @@ export function TestimonialCarousel() {
               aria-label={`Go to testimonial ${i + 1}`}
               className={cn(
                 "h-2 rounded-full transition-all duration-300",
-                i === selected ? "w-7 bg-gold" : "w-2 bg-navy/20 hover:bg-navy/40"
+                i === selected
+                  ? "w-7 bg-gold"
+                  : "w-2 bg-navy/20 hover:bg-navy/40",
               )}
             />
           ))}
