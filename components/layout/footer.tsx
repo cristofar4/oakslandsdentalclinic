@@ -142,9 +142,13 @@ export function Footer() {
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
           <p className="flex items-center gap-2">
+            Designed &amp; built by
+            <span className="font-semibold text-navy">Praise Chris</span>
+          </p>
+          <p className="flex items-center gap-2">
             Crafted for confident smiles
             <span className="h-1 w-1 rounded-full bg-gold" />
-            Owerri · Imo State · Nigeria
+            Owerri · Imo State
           </p>
         </div>
       </div>
