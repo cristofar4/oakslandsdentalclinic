@@ -4,6 +4,10 @@ const nextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // Cache optimized images for ~31 days so repeat visits (esp. on mobile)
+    // are instant, and add small device widths for phones.
+    minimumCacheTTL: 2678400,
+    deviceSizes: [360, 414, 640, 750, 828, 1080, 1200, 1920, 2048],
     remotePatterns: [
       {
         protocol: "https",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SmartImage } from "@/components/shared/smart-image";
 import { cn } from "@/lib/utils";
 
@@ -14,8 +14,10 @@ type VideoBackdropProps = {
 
 /**
  * Cinematic hero background. Always renders an animated gradient + a slow-zoom
- * poster image, then fades a looping muted video over the top once it can
- * play. If the video can't load, the hero still feels alive.
+ * poster image. On larger screens with a healthy connection it then fades a
+ * looping muted video over the top. On phones, data-saver, or slow networks
+ * the video is never downloaded — the poster + gradient keep the hero alive
+ * while images and content load fast.
  */
 export function VideoBackdrop({
   poster,
@@ -25,6 +27,35 @@ export function VideoBackdrop({
 }: VideoBackdropProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
+  const [allowVideo, setAllowVideo] = useState(false);
+
+  useEffect(() => {
+    if (sources.length === 0) return;
+
+    const evaluate = () => {
+      const wideEnough = window.matchMedia("(min-width: 1024px)").matches;
+      // Respect data-saver and slow connections when the browser exposes them.
+      const conn = (
+        navigator as Navigator & {
+          connection?: { saveData?: boolean; effectiveType?: string };
+        }
+      ).connection;
+      const slow =
+        conn?.saveData === true ||
+        (conn?.effectiveType
+          ? /(^|-)(2g|3g)$/.test(conn.effectiveType)
+          : false);
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      setAllowVideo(wideEnough && !slow && !reduced);
+    };
+
+    evaluate();
+    const mq = window.matchMedia("(min-width: 1024px)");
+    mq.addEventListener("change", evaluate);
+    return () => mq.removeEventListener("change", evaluate);
+  }, [sources.length]);
 
   return (
     <div className={cn("absolute inset-0 overflow-hidden", className)}>
@@ -49,8 +80,8 @@ export function VideoBackdrop({
         />
       </div>
 
-      {/* Looping video, fades in when playable */}
-      {sources.length > 0 && (
+      {/* Looping video — only mounted on capable screens/connections */}
+      {allowVideo && sources.length > 0 && (
         <video
           ref={ref}
           autoPlay
