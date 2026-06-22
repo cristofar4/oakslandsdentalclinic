@@ -43,6 +43,7 @@ export function VideoBackdrop({
           alt=""
           fill
           priority
+          quality={55}
           sizes="100vw"
           className="object-cover opacity-80"
         />

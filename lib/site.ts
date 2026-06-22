@@ -53,7 +53,7 @@ export const media = {
     "https://assets.mixkit.co/videos/preview/mixkit-dentist-checking-a-patient-9469-large.mp4",
   ],
   heroPoster:
-    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1280&q=60",
   pagePosters: {
     about:
       "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80",
