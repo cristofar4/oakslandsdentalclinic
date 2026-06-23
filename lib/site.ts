@@ -8,9 +8,9 @@ export const site = {
   name: "Oaklands Dental Clinic",
   legalName: "Oaklands Multispecialty Dental Care Clinic",
   shortName: "Oaklands",
-  tagline: "Precision dentistry. Effortless confidence.",
+  tagline: "Owerri's trusted, affordable dental clinic.",
   description:
-    "Oaklands Multispecialty Dental Care Clinic is Imo State's premier destination for advanced, patient-centred dentistry, from smile makeovers and orthodontics to restorative and preventive care in Owerri, Nigeria.",
+    "Oaklands Multispecialty Dental Care Clinic is Owerri's top-rated, affordable dental provider, combining ultramodern equipment with gentle, personalized care. From routine checkups, fillings and teeth whitening to braces, veneers, implants and oral surgery, every treatment is tailored to your needs in Imo State, Nigeria.",
   founded: 2015,
   url: "https://www.oaklandsdentalclinic.com",
   email: "info@oaklandsdentalclinic.com",
@@ -291,6 +291,66 @@ export const services: Service[] = [
     ],
     category: "Preventive",
   },
+  {
+    slug: "childrens-dentistry",
+    title: "Children's Dentistry",
+    short: "Gentle, friendly dental care for your little ones.",
+    description:
+      "A calm, kid-friendly approach that makes early dental visits easy, building healthy habits and confident smiles from a young age.",
+    longDescription:
+      "We love caring for children. Our team makes every visit gentle, patient and even fun, so kids feel safe in the chair. From first checkups and cleanings to fillings, fluoride and habit guidance, we protect young smiles while teaching brushing skills that last a lifetime.",
+    icon: "Baby",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+    duration: "30 mins",
+    highlights: [
+      "Kid-friendly & gentle",
+      "Checkups & cleanings",
+      "Fillings & fluoride",
+      "Healthy-habit coaching",
+    ],
+    category: "Preventive",
+  },
+  {
+    slug: "implants-dentures",
+    title: "Dental Implants & Dentures",
+    short: "Natural-looking tooth replacement that restores your bite.",
+    description:
+      "Replace missing teeth with secure implants or comfortable, custom dentures, so you can eat, speak and smile with full confidence again.",
+    longDescription:
+      "Missing teeth affect more than your smile. We restore them with durable dental implants that look and feel natural, or with comfortable, precisely fitted dentures. Each solution is tailored to your mouth and budget, rebuilding your bite, your confidence and a complete smile.",
+    icon: "Bone",
+    image:
+      "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80",
+    duration: "Tailored plan",
+    highlights: [
+      "Natural-looking implants",
+      "Custom-fit dentures",
+      "Restores chewing",
+      "Built to last",
+    ],
+    category: "Restorative",
+  },
+  {
+    slug: "oral-surgery",
+    title: "Oral Surgery",
+    short: "Safe surgical care for swellings, cysts and wisdom teeth.",
+    description:
+      "Expert, sterile surgical treatment for impacted wisdom teeth, mouth swellings, cysts and growths, with calm aftercare every step of the way.",
+    longDescription:
+      "When a problem needs surgical care, you're in safe hands. Our clinicians handle impacted wisdom teeth, the removal of cysts, mouth swellings and growths, and other minor oral surgery, using effective anaesthesia and a sterile protocol. We explain everything clearly and guide your recovery for fast, comfortable healing.",
+    icon: "Syringe",
+    image:
+      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80",
+    duration: "30 to 60 mins",
+    highlights: [
+      "Wisdom tooth removal",
+      "Cyst & swelling removal",
+      "Sterile, safe protocol",
+      "Clear aftercare",
+    ],
+    category: "Surgical",
+  },
 ];
 
 export type TeamMember = {
@@ -514,27 +574,27 @@ export const faqs: FaqItem[] = [
 
 export const values = [
   {
-    title: "Patient-first comfort",
+    title: "Genuinely affordable",
     description:
-      "Every detail, from our calm interiors to gentle clinical technique, is designed around how you feel.",
+      "We keep treatment cost to a minimum and always explain your options, including more affordable alternatives, so quality care stays within reach.",
     icon: "HeartHandshake",
   },
   {
-    title: "Clinical excellence",
+    title: "Ultramodern equipment",
     description:
-      "A multispecialty team using modern technology and evidence-based protocols for predictable, lasting results.",
+      "Advanced, state-of-the-art dental technology lets us diagnose accurately and treat precisely, with far greater comfort.",
     icon: "Award",
   },
   {
-    title: "Honest & transparent",
+    title: "Multispecialty under one roof",
     description:
-      "Clear plans, upfront pricing and straight answers. You'll always understand your options before we begin.",
+      "From checkups and fillings to braces, implants and oral surgery, every treatment your family needs is handled in one trusted clinic.",
     icon: "ShieldCheck",
   },
   {
-    title: "Smiles that last",
+    title: "The best patient experience",
     description:
-      "We treat the cause, not just the symptom, protecting your oral health and confidence for the long term.",
+      "Rated Imo State's best, from the dentists to the front desk, in a calm, welcoming environment built around your comfort.",
     icon: "Infinity",
   },
 ];
@@ -673,10 +733,11 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const trustBadges = [
-  "Multispecialty Care",
-  "Modern Technology",
-  "Gentle & Pain-Free",
+  "Affordable Care",
+  "Ultramodern Equipment",
+  "Multispecialty Clinic",
   "20,000+ Patients",
-  "Owerri, Imo State",
+  "Family & Children",
+  "Near ITC Park, Owerri",
   "Emergency Care",
 ];

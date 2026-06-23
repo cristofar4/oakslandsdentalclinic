@@ -35,9 +35,9 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About Oaklands"
-        title="Redefining dental care in the heart of Owerri"
-        highlight="dental"
-        description="More than a clinic, a sanctuary of expertise, comfort and craftsmanship where every smile is treated as a work of art."
+        title="Owerri's trusted multispecialty dental clinic"
+        highlight="trusted"
+        description="Since 2015, Oaklands has delivered top-rated, affordable dental care in Owerri, combining ultramodern equipment with a team that treats every patient like family."
         crumbs={[{ label: "About" }]}
       />
 

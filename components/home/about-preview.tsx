@@ -9,9 +9,9 @@ import { TextReveal } from "@/components/shared/text-reveal";
 import { Parallax } from "@/components/shared/parallax";
 
 const points = [
-  "Founded in 2015 by Dr. David Wilfred",
+  "Top-rated, affordable care in Imo State",
   "A multispecialty team of 16+ clinicians",
-  "Modern technology, gentle technique",
+  "Ultramodern equipment, gentle technique",
 ];
 
 export function AboutPreview() {
@@ -66,8 +66,8 @@ export function AboutPreview() {
           </span>
           <TextReveal
             as="h2"
-            text="Where world-class dentistry meets genuine care."
-            highlight="care."
+            text="Expert dentistry the people of Owerri trust."
+            highlight="trust."
             className="mt-5 text-fluid-h2 font-semibold leading-[1.08]"
           />
 

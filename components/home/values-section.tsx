@@ -13,9 +13,9 @@ export function ValuesSection() {
           <SectionHeading
             align="left"
             eyebrow="Why Oaklands"
-            title="The difference is in the details"
-            highlight="details"
-            description="Patients don't just choose us for our clinical results, they stay for how we make them feel."
+            title="Why patients across Owerri choose us"
+            highlight="choose"
+            description="Expert care they can actually afford, delivered with ultramodern technology and genuine warmth, all in one trusted clinic."
           />
 
           <div className="relative mt-10 hidden overflow-hidden rounded-2xl shadow-soft lg:block">

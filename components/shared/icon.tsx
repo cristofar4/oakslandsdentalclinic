@@ -10,6 +10,9 @@ import {
   HeartHandshake,
   Award,
   ShieldCheck,
+  Baby,
+  Bone,
+  Syringe,
   Infinity as InfinityIcon,
   type LucideIcon,
 } from "lucide-react";
@@ -26,6 +29,9 @@ const map: Record<string, LucideIcon> = {
   HeartHandshake,
   Award,
   ShieldCheck,
+  Baby,
+  Bone,
+  Syringe,
   Infinity: InfinityIcon,
 };
 

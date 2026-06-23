@@ -15,9 +15,9 @@ export function ServicesPreview() {
           <SectionHeading
             align="left"
             eyebrow="What we do"
-            title="A full spectrum of premium dental care"
-            highlight="premium"
-            description="From everyday prevention to transformative cosmetic dentistry, every treatment is delivered with precision, artistry and genuine warmth."
+            title="Every treatment, all under one roof"
+            highlight="roof"
+            description="From routine checkups, fillings and children's dentistry to braces, veneers, implants and oral surgery, our multispecialty team covers it all, affordably."
           />
           <Reveal>
             <Button asChild variant="outline" className="shrink-0">

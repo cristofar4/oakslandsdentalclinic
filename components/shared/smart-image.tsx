@@ -76,10 +76,7 @@ export function SmartImage({
         loading="lazy"
         decoding="async"
         onError={() => setStage(2)}
-        className={cn(
-          "absolute inset-0 h-full w-full object-cover",
-          className,
-        )}
+        className={cn("absolute inset-0 h-full w-full object-cover", className)}
       />
     );
   }

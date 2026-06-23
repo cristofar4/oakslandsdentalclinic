@@ -50,22 +50,23 @@ export function Hero() {
 
           <h1 className="text-fluid-display font-semibold leading-[0.98] text-white">
             <span className="hero-line block overflow-hidden">
-              <span className="inline-block">Dentistry that</span>
+              <span className="inline-block">Expert dental care,</span>
             </span>
             <span className="hero-line block overflow-hidden">
               <span className="inline-block text-gradient-gold">
-                feels luxurious
+                made affordable
               </span>
             </span>
             <span className="hero-line block overflow-hidden">
-              <span className="inline-block">looks effortless.</span>
+              <span className="inline-block">in Owerri.</span>
             </span>
           </h1>
 
-          <p className="hero-fade mt-7 max-w-md text-lg leading-relaxed text-white/75">
-            At {site.name}, world-class care meets genuine comfort. From radiant
-            smile makeovers to gentle, pain-free treatment, your best smile
-            begins in Owerri.
+          <p className="hero-fade mt-7 max-w-xl text-lg leading-relaxed text-white/75">
+            Oaklands is Imo State&apos;s top-rated multispecialty dental clinic,
+            combining ultramodern equipment with gentle, personalized care. From
+            routine checkups, fillings and teeth whitening to braces, veneers
+            and implants, every treatment is tailored to you.
           </p>
 
           <div className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
